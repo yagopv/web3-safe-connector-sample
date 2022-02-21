@@ -1,13 +1,12 @@
 import React from 'react';
 import {
-  useSafeAppConnection,
   SafeAppConnector,
+  useSafeAppConnection,
 } from '@gnosis.pm/safe-apps-web3-react';
-import './styles.css';
 
 const safeMultisigConnector = new SafeAppConnector();
 
-export default function App() {
+const SafeInfo = (props) => {
   const [safeInfo, setSafeInfo] = React.useState(null);
   const triedToConnectToSafe = useSafeAppConnection(safeMultisigConnector);
 
@@ -37,4 +36,5 @@ export default function App() {
       </p>
     </div>
   );
-}
+};
+export default SafeInfo;
