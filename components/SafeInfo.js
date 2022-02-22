@@ -12,8 +12,6 @@ const SafeInfo = (props) => {
 
   React.useEffect(() => {
     if (triedToConnectToSafe) {
-      console.log('Connected to Safe');
-
       safeMultisigConnector.getSafeInfo().then((safeInfo) => {
         setSafeInfo(safeInfo);
       });
@@ -37,4 +35,5 @@ const SafeInfo = (props) => {
     </div>
   );
 };
+
 export default SafeInfo;
