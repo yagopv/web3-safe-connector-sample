@@ -4,19 +4,15 @@ import {
   useSafeAppConnection,
 } from '@gnosis.pm/safe-apps-web3-react';
 
-const safeMultisigConnector = new SafeAppConnector();
-
 const SafeInfo = (props) => {
   const [safeInfo, setSafeInfo] = React.useState(null);
-  const triedToConnectToSafe = useSafeAppConnection(safeMultisigConnector);
 
   React.useEffect(() => {
-    if (triedToConnectToSafe) {
-      safeMultisigConnector.getSafeInfo().then((safeInfo) => {
-        setSafeInfo(safeInfo);
-      });
-    }
-  }, [triedToConnectToSafe]);
+    const safeMultisigConnector = new SafeAppConnector();
+    safeMultisigConnector.getSafeInfo().then((safeInfo) => {
+      setSafeInfo(safeInfo);
+    });
+  }, []);
 
   if (!safeInfo) {
     return null;
